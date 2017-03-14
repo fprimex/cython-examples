@@ -25,7 +25,7 @@ v = u.copy() # perturbed matrix
 # generate inital values between -1 and 1
 # rows of u are x's and columns are time steps
 #for i = 1:J
-for i in xrange(J):
+for i in range(J):
     u[i][0] = -1 + 2*numpy.random.rand()
     #u[i][1] = 0.1*i
     
@@ -40,7 +40,7 @@ t = numpy.zeros( steps+1 )
 start_time = clock()
 solve(F, h, J, steps, t, u, v)
 end_time = clock()
-print "tfinal: %i" % tfinal
-print "h: %f" % h
-print "Seconds elapsed: %f" % (end_time - start_time)
+print("tfinal: {}".format(tfinal))
+print("h: {}".format(h))
+print("Seconds elapsed: {}".format(end_time - start_time))
 

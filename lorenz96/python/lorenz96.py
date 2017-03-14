@@ -23,7 +23,7 @@ u = numpy.zeros( (J, steps+1) )
 v = u.copy() # perturbed matrix
 # generate inital values between -1 and 1
 # rows of u are x's and columns are time steps
-for i in xrange(J):
+for i in range(J):
     u[i, 0] = -1 + 2*numpy.random.rand()
     
     # initial perturbed data
@@ -33,7 +33,7 @@ t = numpy.zeros( steps+1 )
 
 # perform 4th order Runge-Kutta to iterate in time
 start_time = clock()
-for i in xrange(steps):
+for i in range(steps):
     t[i+1] = i*h
 
     # diagnostic output if desired
@@ -85,7 +85,7 @@ for i in xrange(steps):
    
     # iterate for the rest
     #for j = 3:J-1
-    for j in xrange(2, J-1):
+    for j in range(2, J-1):
         f1 = (u[j+1, i] - u[j-2, i])*u[j-1, i] - u[j, i] + F
         f2 = (u[j+1, i] - u[j-2, i])*(u[j-1, i] + h/2*f1) - u[j, i] - h/2*f1 + F
         f3 = (u[j+1, i] - u[j-2, i])*(u[j-1, i] + h/2*f2) - u[j, i] - h/2*f2 + F
@@ -100,9 +100,9 @@ for i in xrange(steps):
         v[j, i+1] = v[j, i] + h/6*(f1 + 2*f2 + 2*f3 + f4)
 
 end_time = clock()
-print "tfinal: %i" % tfinal
-print "h: %f" % h
-print "Seconds elapsed: %f" % (end_time - start_time)
+print("tfinal: {}".format(tfinal))
+print("h: {}".format(h))
+print("Seconds elapsed: {}".format(end_time - start_time))
 
 # Uncomment the rest if you're interested in saving data
 # for plotting with, e.g., gnuplot. Plotting could also be
