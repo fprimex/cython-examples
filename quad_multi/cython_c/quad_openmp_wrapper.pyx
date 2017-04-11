@@ -40,7 +40,7 @@ cdef class ExtIntegrator:
 
         # assign function pointers in order
         self.func_ptrs[0] = f1_ptr
-        self.func_ptrs[1] = f1_ptr
+        self.func_ptrs[1] = f2_ptr
 
     def __init__(self):
         self.func_reprs = [
